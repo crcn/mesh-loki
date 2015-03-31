@@ -1,6 +1,8 @@
+
+
 [![Build Status](https://travis-ci.org/mojo-js/crudlet-loki.svg)](https://travis-ci.org/mojo-js/crudlet-loki) [![Coverage Status](https://coveralls.io/repos/mojo-js/crudlet-loki/badge.svg?branch=master)](https://coveralls.io/r/mojo-js/crudlet-loki?branch=master) [![Dependency Status](https://david-dm.org/mojo-js/crudlet-loki.svg)](https://david-dm.org/mojo-js/crudlet-loki)
 
-Streamable interface for [LokiJS](http://lokijs.org/#/).
+Streamable interface for [LokiJS](http://lokijs.org/#/). *Not implemented yet*.
 
 ```javascript
 var crud   = require("crudlet");
