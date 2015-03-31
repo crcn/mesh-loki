@@ -4,7 +4,7 @@ Streamable interface for [LokiJS](http://lokijs.org/#/).
 
 ```javascript
 var crud   = require("crudlet");
-var lokidb = require("crudlet-lokidb");
+var lokidb = require("crudlet-loki");
 var loki   = require("loki");
 var _      = require("highland");
 
