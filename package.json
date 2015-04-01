@@ -1,7 +1,7 @@
 {
   "name": "crudlet-loki",
-  "version": "0.0.1",
-  "description": "local storage adapter (offline-mode) for crudlet",
+  "version": "0.0.3",
+  "description": "lokijs adapter for crudlet",
   "main": "./lib/index.js",
   "scripts": {
     "test": "gulp lint test-coveralls"
@@ -28,7 +28,9 @@
     "gulp-jshint": "^1.9.4",
     "gulp-mocha": "^2.0.0",
     "gulp-plumber": "^1.0.0",
+    "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.1.0",
+    "highland": "^2.4.0",
     "karma": "^0.12.31",
     "protoclass": "0.0.6",
     "sinon": "^1.14.1",
@@ -37,5 +39,9 @@
     "yargs": "^3.6.0"
   },
   "dependencies": {
+    "loki": "0.0.0",
+    "lokijs": "^1.2.3",
+    "obj-stream": "0.0.x",
+    "xtend": "^4.0.0"
   }
 }
