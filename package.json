@@ -1,6 +1,6 @@
 {
   "name": "crudlet-loki",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "lokijs adapter for crudlet",
   "main": "./lib/index.js",
   "scripts": {
