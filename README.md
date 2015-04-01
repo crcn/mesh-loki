@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mojo-js/crudlet-loki.svg)](https://travis-ci.org/mojo-js/crudlet-loki) [![Coverage Status](https://coveralls.io/repos/mojo-js/crudlet-loki/badge.svg?branch=master)](https://coveralls.io/r/mojo-js/crudlet-loki?branch=master) [![Dependency Status](https://david-dm.org/mojo-js/crudlet-loki.svg)](https://david-dm.org/mojo-js/crudlet-loki)
 
-Streamable database adapter for [LokiJS](http://lokijs.org/#/). This library also pairs nicely with [crudlet](https://github.com/mojo-js/crudlet.js), along with all the other crudlet plugins such as [crudlet-pubnub](https://github.com/mojo-js/crudlet-pubnub), and [crudlet-http](https://github.com/mojo-js/crudlet-http). 
+Streamable database adapter for [LokiJS](http://lokijs.org/#/), an in-memory JavaScript database. This library also pairs nicely with [crudlet](https://github.com/mojo-js/crudlet.js), along with all the other crudlet plugins such as [crudlet-pubnub](https://github.com/mojo-js/crudlet-pubnub), and [crudlet-http](https://github.com/mojo-js/crudlet-http). 
 
 ```javascript
 var crud   = require("crudlet");
