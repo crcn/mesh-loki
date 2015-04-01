@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mojo-js/crudlet-loki.svg)](https://travis-ci.org/mojo-js/crudlet-loki) [![Coverage Status](https://coveralls.io/repos/mojo-js/crudlet-loki/badge.svg?branch=master)](https://coveralls.io/r/mojo-js/crudlet-loki?branch=master) [![Dependency Status](https://david-dm.org/mojo-js/crudlet-loki.svg)](https://david-dm.org/mojo-js/crudlet-loki)
 
-Streamable database adapter for [LokiJS](http://lokijs.org/#/), an in-memory JavaScript database. This library also pairs nicely with [crudlet](https://github.com/mojo-js/crudlet.js), along with all the other crudlet plugins such as [crudlet-pubnub](https://github.com/mojo-js/crudlet-pubnub), and [crudlet-http](https://github.com/mojo-js/crudlet-http). 
+Streamable database adapter for [LokiJS](http://lokijs.org/#/), an in-memory JavaScript database. This library also pairs nicely with [crudlet](https://github.com/mojo-js/crudlet.js), along with all the other crudlet plugins such as [crudlet-pubnub](https://github.com/mojo-js/crudlet-pubnub), and [crudlet-http](https://github.com/mojo-js/crudlet-http).
 
 ```javascript
 var crud   = require("crudlet");
@@ -143,3 +143,68 @@ peopleDb("upsert", {
 
 });
 ```
+
+## Interoperability with other database
+
+`crudlet-loki` works well with other [crudlet adapters](https://github.com/mojo-js/crudlet.js#adapters). Below are a some examples of
+what you can do.
+
+### Realtime data
+
+Use whatever realtime adapter you want - [pubnub](https://github.com/mojo-js/crudlet-pubnub), webrtc, socket.io. Here's an example with [pubnub](https://github.com/mojo-js/crudlet-pubnub):
+
+```javascript
+var pubnub = require("crudlet-pubnub");
+var loki   = require("crudlet-loki");
+var crud   = require("crudlet");
+
+var remotedb = pubnub(ops);
+
+// tailable makes "tail" an option for databases that don't support it (such as lokidb).
+// "tail" gets emmited whenever there's an operation executed against the database
+var memdb    = crud.tailable(loki());
+
+// tail all remote operations to the memory database
+remotedb("tail").pipe(crud.open(memdb));
+
+// tail operations on the in-memory database & pass them back to pubnub
+// NOTE that operations coming from pubnub won't get re-published.
+memdb("tail").pipe(crud.open(remotedb));
+
+// insert data to the local database - this will also get sent to pubnub
+memdb("insert", {
+  collection: "people"
+  data: {
+    name: "Will Ferrell"
+  }
+});
+```
+
+<!--
+#### RESTful interface
+
+```javascript
+
+var localStorage = require("crudlet-local-storage");
+var loki         = require("crudlet-loki");
+var crud         = require("crudlet");
+
+var storedb  = crud.tailable(localStorage());
+var memdb    = crud.tailable(loki());
+
+storedb("load").pipe(crud.open(memdb));
+remotedb("tail").pipe(crud.open(memdb));
+
+// tail operations on the in-memory database & pass them back to pubnub
+// NOTE that operations coming from pubnub won't get re-published.
+memdb("tail").pipe(crud.open(remotedb));
+
+// insert data to the local database - this will also get sent to pubnub
+memdb("insert", {
+  collection: "people"
+  data: {
+    name: "Will Ferrell"
+  }
+});
+```
+-->
