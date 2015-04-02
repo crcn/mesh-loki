@@ -31,6 +31,14 @@ describe(__filename + "#", function() {
     });
   });
 
+  it("can insert an item with a loki id", function(next) {
+    var db = crud.child(lokidb(), { collection: "people" });
+    db("insert", { data: { name: "abba", $loki: 1 }}).on("data", function(item) {
+      expect(item.meta).not.to.be(void 0);
+      next();
+    });
+  });
+
   it("can insert multiple items", function(next) {
     var db = crud.child(lokidb(), { collection: "people" });
     db("insert", { data: [{ name: "abba" }, { name: "baab"}]}).pipe(_.pipeline(_.collect)).on("data", function(items) {
