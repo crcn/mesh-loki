@@ -1,6 +1,6 @@
 {
   "name": "crudlet-loki",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "lokijs adapter for crudlet",
   "main": "./lib/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "homepage": "https://github.com/crcn/crudlet.js",
   "devDependencies": {
     "browserify": "^9.0.3",
-    "crudlet": "0.0.x",
+    "crudlet": "1.0.x",
     "expect.js": "^0.3.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
