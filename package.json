@@ -1,24 +1,24 @@
 {
-  "name": "crudlet-loki",
+  "name": "mesh-loki",
   "version": "1.0.0",
-  "description": "lokijs adapter for crudlet",
+  "description": "lokijs adapter for mesh",
   "main": "./lib/index.js",
   "scripts": {
     "test": "gulp lint test-coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/crcn/crudlet.js.git"
+    "url": "https://github.com/crcn/mesh.js.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/crcn/crudlet.js/issues"
+    "url": "https://github.com/crcn/mesh.js/issues"
   },
-  "homepage": "https://github.com/crcn/crudlet.js",
+  "homepage": "https://github.com/crcn/mesh.js",
   "devDependencies": {
     "browserify": "^9.0.3",
-    "crudlet": "1.0.x",
+    "mesh": "1.0.x",
     "expect.js": "^0.3.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",

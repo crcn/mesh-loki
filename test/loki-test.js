@@ -1,5 +1,5 @@
 var lokidb = require("../");
-var crud   = require("crudlet");
+var mesh   = require("mesh");
 var expect = require("expect.js");
 var _      = require("highland");
 var loki   = require("lokijs");
@@ -17,14 +17,14 @@ describe(__filename + "#", function() {
   });
 
   it("emits an error if collection is missing", function(next) {
-    var db = crud.clean(lokidb());
+    var db = mesh.clean(lokidb());
     db("insert", { data: { name: "abba" }}).on("error", function() {
       next();
     });
   });
 
   it("can insert an item", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("insert", { data: { name: "abba" }}).on("data", function(item) {
       expect(item.meta).not.to.be(void 0);
       next();
@@ -32,7 +32,7 @@ describe(__filename + "#", function() {
   });
 
   it("can insert an item with a loki id", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("insert", { data: { name: "abba", $loki: 1 }}).on("data", function(item) {
       expect(item.meta).not.to.be(void 0);
       next();
@@ -40,7 +40,7 @@ describe(__filename + "#", function() {
   });
 
   it("can insert multiple items", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("insert", { data: [{ name: "abba" }, { name: "baab"}]}).pipe(_.pipeline(_.collect)).on("data", function(items) {
       expect(items[0].name).to.be("abba");
       expect(items[1].name).to.be("baab");
@@ -49,7 +49,7 @@ describe(__filename + "#", function() {
   });
 
   it("can update an item", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
 
     db("insert", {
       data: { name: "abba" }
@@ -68,7 +68,7 @@ describe(__filename + "#", function() {
   });
 
   it("can update multiple items", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("insert", {
       data: [
         { name: "abba" },
@@ -95,7 +95,7 @@ describe(__filename + "#", function() {
   });
 
   it("can load one item", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("insert", {
       data: [
         { name: "abba" },
@@ -112,7 +112,7 @@ describe(__filename + "#", function() {
   });
 
   it("can load multiple items", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("insert", {
       data: [
         { name: "abba" },
@@ -130,7 +130,7 @@ describe(__filename + "#", function() {
   });
 
   it("can remove one item", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
 
     db("insert", {
       data: [
@@ -153,7 +153,7 @@ describe(__filename + "#", function() {
   });
 
   it("can remove multiple items", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
 
     db("insert", {
       data: [
@@ -177,7 +177,7 @@ describe(__filename + "#", function() {
   });
 
   it("can upsert and insert an item", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("upsert", {
       query: { name: "abba" },
       data: { name: "abba" }
@@ -188,7 +188,7 @@ describe(__filename + "#", function() {
   });
 
   it("can upsert and update an item", function(next) {
-    var db = crud.clean(crud.child(lokidb(), { collection: "people" }));
+    var db = mesh.clean(mesh.child(lokidb(), { collection: "people" }));
     db("upsert", {
       query: { name: "abba" },
       data: { name: "abba" }
