@@ -18,7 +18,6 @@
   "homepage": "https://github.com/crcn/mesh.js",
   "devDependencies": {
     "browserify": "^9.0.3",
-    "mesh": "1.0.x",
     "expect.js": "^0.3.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
@@ -32,6 +31,8 @@
     "gulp-uglify": "^1.1.0",
     "highland": "^2.4.0",
     "karma": "^0.12.31",
+    "mesh": "1.0.x",
+    "mesh-store-test-cases": "0.0.2",
     "protoclass": "0.0.6",
     "sinon": "^1.14.1",
     "vinyl-buffer": "^1.0.0",

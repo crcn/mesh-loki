@@ -3,8 +3,13 @@ var mesh   = require("mesh");
 var expect = require("expect.js");
 var _      = require("highland");
 var loki   = require("lokijs");
+var createTestCases      = require("mesh-store-test-cases");
 
 describe(__filename + "#", function() {
+
+
+  // var cases = createTestCases(lokidb);
+  // for (var name in cases) it(name, cases[name]);
 
   it("can be created", function() {
     lokidb();
