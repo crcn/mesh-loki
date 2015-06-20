@@ -1,9 +1,11 @@
 {
   "name": "mesh-loki",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "lokijs adapter for mesh",
   "main": "./lib/index.js",
-  "keywords": ["meshjs"],
+  "keywords": [
+    "meshjs"
+  ],
   "scripts": {
     "test": "gulp lint test-coveralls"
   },
@@ -32,8 +34,7 @@
     "gulp-uglify": "^1.1.0",
     "highland": "^2.4.0",
     "karma": "^0.12.31",
-    "mesh": "1.0.x",
-    "mesh-store-test-cases": "0.0.2",
+    "mesh": "3.0.x",
     "protoclass": "0.0.6",
     "sinon": "^1.14.1",
     "vinyl-buffer": "^1.0.0",
@@ -43,6 +44,7 @@
   "dependencies": {
     "loki": "0.0.0",
     "lokijs": "^1.2.3",
+    "mesh": "^3.0.2",
     "obj-stream": "0.0.x",
     "xtend": "^4.0.0"
   }
