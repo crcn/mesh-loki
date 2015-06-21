@@ -28,7 +28,7 @@ peopleDb("insert", {
 
 // collect all the inserted items & put them in an array using HighlandJS
 // this is similar to something like cursor.toArray() in mongodb
-pipe(_().collect()).
+pipe(_pipeline(_.collect())).
 
 // wait for the data to be emitted
 on("data", function(people) {
