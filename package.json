@@ -1,6 +1,6 @@
 {
   "name": "mesh-loki",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "lokijs adapter for mesh",
   "main": "./lib/index.js",
   "keywords": [
@@ -44,7 +44,7 @@
   "dependencies": {
     "loki": "0.0.0",
     "lokijs": "^1.2.3",
-    "mesh": "^3.0.x",
+    "mesh": "^4.0.x",
     "obj-stream": "0.0.x",
     "xtend": "^4.0.0"
   }
